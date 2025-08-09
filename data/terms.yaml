@@ -1,0 +1,16 @@
+# data/terms.yaml
+- id: foss
+  term: "FOSS"
+  acronym: "Free and Open Source Software"
+  definition: "Software granting four freedoms: use, study, modify, distribute."
+  category: "licensing"
+  why_it_matters: "Foundation of modern tech (Linux, Kubernetes). Prevents vendor lock-in."
+  example: |
+    ```bash
+    # Legally clone, modify, and redistribute:
+    git clone https://github.com/torvalds/linux.git
+    ```
+  related: ["floss", "gpl", "mit-license"]
+  note: "Not just 'free as in beer' but 'free as in speech'."
+  emoji: "🆓🐧"
+  last_updated: "2023-11-20"
