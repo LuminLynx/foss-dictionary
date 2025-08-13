@@ -14,3 +14,651 @@
   note: "Not just 'free as in beer' but 'free as in speech'."
   emoji: "🆓🐧"
   last_updated: "2023-11-20"
+
+- id: agile
+  term: "Agile"
+  definition: "A set of software development practices famously misunderstood by management."
+  category: "methodology"
+  why_it_matters: "When applied well, it keeps teams adaptive and customer-focused. When weaponized, it means 'no planning allowed'."
+  example: |
+    ```txt
+    Daily standup: Talk fast, ship faster.
+    ```
+  related: ["scrum", "kanban", "waterfall"]
+  note: "Often confused with 'doing things quickly'."
+  emoji: "🏃‍♂️📦"
+  last_updated: "2024-08-11"
+
+- id: cloud
+  term: "Cloud"
+  definition: "Someone else’s computer, rented hourly."
+  category: "infra"
+  why_it_matters: "Shifts the burden of owning servers. Also shifts the monthly invoice into 4 digits."
+  example: |
+    ```bash
+    # Deploy to AWS (and kiss your wallet goodbye)
+    aws s3 cp my-app.zip s3://bucket-name/
+    ```
+  related: ["aws", "azure", "gcp"]
+  note: "It scales... until it costs more than your team."
+  emoji: "☁️💸"
+  last_updated: "2024-08-11"
+
+- id: api
+  term: "API"
+  acronym: "Application Programming Interface"
+  definition: "A way for one system to politely ask another to do stuff."
+  category: "backend"
+  why_it_matters: "APIs stitch together the internet—from login buttons to payment processors."
+  example: |
+    ```js
+    fetch("https://pokeapi.co/api/v2/pokemon/pikachu");
+    ```
+  related: ["rest", "webhook", "sdk"]
+  note: "When broken, everyone blames someone else's API."
+  emoji: "🔌📡"
+  last_updated: "2024-08-11"
+
+- id: devops
+  term: "DevOps"
+  definition: "A cultural mashup of devs and ops—now also a job title, a pipeline, and a vague philosophy."
+  category: "culture"
+  why_it_matters: "It’s meant to bridge silos. Often just renames ops to sound modern."
+  example: |
+    ```txt
+    'DevOps Engineer' = the person asked to fix broken CI jobs and write Terraform on weekends.
+    ```
+  related: ["ci-cd", "sre", "infra-as-code"]
+  note: "Hard to define. Easy to blame."
+  emoji: "🔧🤝"
+  last_updated: "2024-08-11"
+
+- id: regex
+  term: "Regex"
+  acronym: "Regular Expression"
+  definition: "A dense, magical pattern language for finding stuff inside text."
+  category: "tooling"
+  why_it_matters: "Lets you validate, extract, and manipulate strings—until it breaks mysteriously."
+  example: |
+    ```js
+    /gr(a|e)y/
+    // Matches both 'gray' and 'grey'
+    ```
+  related: ["string", "grep", "parser"]
+  note: "Write once. Regret forever."
+  emoji: "🔍🔣"
+  last_updated: "2024-08-11"
+
+- id: gpl
+  term: "GPL"
+  acronym: "General Public License"
+  definition: "A software license that says 'share everything'—even if you weren’t planning to."
+  category: "license"
+  why_it_matters: "Forces derivative works to be open. Great for freedom, terrifying for proprietary products."
+  example: |
+    ```txt
+    You used one GPL line? Congrats, your whole app is now open source.
+    ```
+  related: ["license", "copyleft", "open-source"]
+  note: "Just one library away from eternal openness."
+  emoji: "📜🔓"
+  last_updated: "2024-08-11"
+
+- id: mit-license
+  term: "MIT License"
+  definition: "The chill license. Use, modify, ship—just don’t sue the author."
+  category: "license"
+  why_it_matters: "Its simplicity makes it wildly popular and startup-friendly."
+  example: |
+    ```txt
+    MIT License = 'Do whatever you want, but it's your problem now.'
+    ```
+  related: ["license", "oss", "apache"]
+  note: "Basically the IKEA instructions of software licensing."
+  emoji: "📝🕊️"
+  last_updated: "2024-08-11"
+
+- id: hallucination
+  term: "Hallucination"
+  definition: "When an AI answers with perfect confidence—and zero truth."
+  category: "ai"
+  why_it_matters: "It’s how your chatbot invents imaginary studies, fake court cases, and non-existent recipes."
+  example: |
+    ```txt
+    AI: According to the '2024 Banana Protocol Act'…
+    User: That doesn’t exist.
+    ```
+  related: ["ai", "model", "llm"]
+  note: "It’s not lying. It’s being ‘creatively incorrect’."
+  emoji: "💭📉"
+  last_updated: "2024-08-11"
+
+- id: prompt-engineering
+  term: "Prompt Engineering"
+  definition: "The art of saying the magic words that coax useful things out of an AI."
+  category: "ai"
+  why_it_matters: "Turns vague bots into brilliant assistants—and oddly feels like casting spells."
+  example: |
+    ```txt
+    Prompt: 'Explain quantum computing using cats and sandwiches.'
+    ```
+  related: ["ai", "instruction", "llm"]
+  note: "Half science, half poetry, half frustration."
+  emoji: "🧙‍♂️💡"
+  last_updated: "2024-08-11"
+
+- id: license-hell
+  term: "License Hell"
+  definition: "The legal tangle that starts when 5 different licenses walk into your codebase."
+  category: "license"
+  why_it_matters: "One wrong mix and you’ve breached something, somewhere, somehow."
+  example: |
+    ```txt
+    Dev: 'This repo uses MIT, GPL, CC BY-SA, and… is that a commercial NDA?'
+    ```
+  related: ["license", "compliance", "risk"]
+  note: "Legal roulette, played with your deploy pipeline."
+  emoji: "🧠🔥⚖️"
+  last_updated: "2024-08-11"
+
+- id: rubber-ducking
+  term: "Rubber Ducking"
+  definition: "Debugging by explaining your code out loud—often to a yellow plastic duck."
+  category: "culture"
+  why_it_matters: "Talking through the problem forces clarity. The duck judges nothing."
+  example: |
+    ```txt
+    Dev: 'Okay duck, if x equals null… wait. WAIT.'
+    ```
+  related: ["debugging", "reflection", "pair-programming"]
+  note: "Silent. Patient. Smarter than it looks."
+  emoji: "🦆🧠"
+  last_updated: "2024-08-11"
+
+- id: heisenbug
+  term: "Heisenbug"
+  definition: "A bug that disappears or changes behavior when you try to observe it."
+  category: "dark-art"
+  why_it_matters: "Defies logic and mocks your logs. Named after quantum weirdness."
+  example: |
+    ```txt
+    Runs fine until you add `console.log`, then crashes in a different way.
+    ```
+  related: ["bug", "debugging", "quantum"]
+  note: "You don’t fix it. You make peace with it."
+  emoji: "👀🐛"
+  last_updated: "2024-08-11"
+
+- id: yak-shaving
+  term: "Yak Shaving"
+  definition: "Doing a chain of unrelated tasks before you can start the actual task."
+  category: "culture"
+  why_it_matters: "The unofficial mascot of dev productivity spirals."
+  example: |
+    ```txt
+    Need to deploy. First need to fix Docker. Which needs a new Node version. Which breaks npm…
+    ```
+  related: ["procrastination", "dev-loop", "meta-task"]
+  note: "One yak leads to another. Bring trimmers."
+  emoji: "🪒🐂"
+  last_updated: "2024-08-11"
+
+- id: clipboard-driven-development
+  term: "Clipboard-Driven Development"
+  definition: "Building software entirely by copy-pasting from Stack Overflow."
+  category: "dark-art"
+  why_it_matters: "Fast and risky. May summon demons if combined with legacy code."
+  example: |
+    ```js
+    // IDK why it works, but it was upvoted.
+    ```
+  related: ["stackoverflow", "code", "risk"]
+  note: "Side effects include dependency hell and deep shame."
+  emoji: "📋🔥"
+  last_updated: "2024-08-11"
+
+- id: remote-fatigue
+  term: "Remote Fatigue"
+  definition: "The slow digital erosion of sanity from too many virtual meetings."
+  category: "culture"
+  why_it_matters: "Zoom can’t read body language. Your team can’t read minds."
+  example: |
+    ```txt
+    Calendar: '5 back-to-back calls'
+    Brain: '404: motivation not found'
+    ```
+  related: ["burnout", "remote", "zoom"]
+  note: "Mute button = temporary relief, not a cure."
+  emoji: "📺🥱"
+  last_updated: "2024-08-11"
+
+- id: code-review
+  term: "Code Review"
+  definition: "A collaborative ritual where teammates make your code better, not bitter."
+  category: "culture"
+  why_it_matters: "Improves quality, spreads knowledge, and can even boost team trust."
+  example: |
+    ```txt
+    Reviewer: 'Nice job on this! Just one tiny nit…'
+    ```
+  related: ["pull-request", "feedback", "collaboration"]
+  note: "Should feel like a helpful conversation, not a courtroom drama."
+  emoji: "🧐🤝"
+  last_updated: "2024-08-11"
+
+- id: mentorship
+  term: "Mentorship"
+  definition: "One dev helping another grow, one question, one encouragement at a time."
+  category: "culture"
+  why_it_matters: "Builds confidence, transfers wisdom, and keeps the human side of tech alive."
+  example: |
+    ```txt
+    'Ask me anything—I’ve made that mistake too.'
+    ```
+  related: ["growth", "leadership", "learning"]
+  note: "Even mentors learn from mentoring."
+  emoji: "🌱🧑‍🏫"
+  last_updated: "2024-08-11"
+
+- id: readme
+  term: "README"
+  definition: "The gentle guidebook your repo leaves behind to say 'Hey, let me help you.'"
+  category: "documentation"
+  why_it_matters: "Offers clarity and kindness to future contributors, including future-you."
+  example: |
+    ```md
+    ## Getting Started
+    Clone the repo. Grab a tea. Run the setup script.
+    ```
+  related: ["docs", "onboarding", "repo"]
+  note: "A README can be an act of empathy."
+  emoji: "📘✨"
+  last_updated: "2024-08-11"
+
+- id: pair-programming
+  term: "Pair Programming"
+  definition: "Two devs, one keyboard, infinite moments of ‘ahhh now I get it!’"
+  category: "culture"
+  why_it_matters: "Faster problem solving and shared learning make this a power move."
+  example: |
+    ```txt
+    'You take the keyboard, I’ll talk through the edge case.'
+    ```
+  related: ["collaboration", "debugging", "productivity"]
+  note: "Best done with coffee, curiosity, and kindness."
+  emoji: "👯‍♂️⌨️"
+  last_updated: "2024-08-11"
+
+- id: open-source
+  term: "Open Source"
+  definition: "Code shared with the world—because generosity scales beautifully."
+  category: "culture"
+  why_it_matters: "Drives collaboration, democratizes knowledge, and powers innovation."
+  example: |
+    ```txt
+    'Contributions welcome' = Join the party 🎉
+    ```
+  related: ["oss", "community", "license"]
+  note: "It’s more than code—it’s a mindset."
+  emoji: "🌍💡"
+  last_updated: "2024-08-11"
+
+- id: passing-tests
+  term: "Passing Tests"
+  definition: "The glorious green light of success after a sea of failed assertions."
+  category: "joy"
+  why_it_matters: "Signals confidence, stability, and that you didn’t break everything (yet)."
+  example: |
+    ```txt
+    ✅ 78 tests passed. No warnings. No tears.
+    ```
+  related: ["ci-cd", "tdd", "coverage"]
+  note: "It's like applause from your test suite."
+  emoji: "🟢✅"
+  last_updated: "2024-08-11"
+
+- id: first-deploy
+  term: "First Deploy"
+  definition: "The thrill of seeing your code actually run where it was supposed to run."
+  category: "joy"
+  why_it_matters: "Your work becomes real. It’s like publishing your first novel, but with logs."
+  example: |
+    ```txt
+    Dev: 'It’s live.'
+    Team: '🎉'
+    ```
+  related: ["deployment", "release", "ci"]
+  note: "Often followed by staring at it for no reason."
+  emoji: "🚀🥂"
+  last_updated: "2024-08-11"
+
+- id: green-build
+  term: "Green Build"
+  definition: "The moment your CI pipeline runs and everything passes without drama."
+  category: "joy"
+  why_it_matters: "Peace. Productivity. Also, bragging rights in Slack."
+  example: |
+    ```txt
+    Jenkins: 'Build succeeded in 43s'
+    Dev: *smiles deeply*
+    ```
+  related: ["ci", "automation", "status"]
+  note: "You screenshot it. You celebrate it."
+  emoji: "🏗️🟩"
+  last_updated: "2024-08-11"
+
+- id: deleting-code
+  term: "Deleting Code"
+  definition: "The pure ecstasy of removing complexity and watching things still work."
+  category: "joy"
+  why_it_matters: "Less code = fewer bugs. Also: strangely therapeutic."
+  example: |
+    ```diff
+    - 84 lines of spaghetti
+    + 3 lines of elegance
+    ```
+  related: ["refactor", "cleanup", "simplification"]
+  note: "Feels like tidying your brain."
+  emoji: "🧹💻"
+  last_updated: "2024-08-11"
+
+- id: elegant-one-liner
+  term: "Elegant One-Liner"
+  definition: "A single line of code that does exactly what it should—beautifully."
+  category: "joy"
+  why_it_matters: "It’s art, it’s skill, it’s peak dev dopamine."
+  example: |
+    ```python
+    data = [x.strip() for x in open('file.txt') if x]
+    ```
+  related: ["syntax", "cleverness", "minimalism"]
+  note: "Satisfying. Slightly smug."
+  emoji: "🎯🧠"
+  last_updated: "2024-08-11"
+
+- id: clean-merge
+  term: "Clean Merge"
+  definition: "When your branch slides into `main` with zero conflicts and total harmony."
+  category: "joy"
+  why_it_matters: "No rebase wrestling, no angry diffs—just a graceful integration."
+  example: |
+    ```txt
+    Git: 'Fast-forward merge completed.'
+    You: *exhales in peace*
+    ```
+  related: ["git", "pull-request", "ci"]
+  note: "As smooth as butter on production."
+  emoji: "🔀🧘‍♂️"
+  last_updated: "2024-08-11"
+
+- id: design-click
+  term: "Design Click"
+  definition: "That magical moment when a layout just feels right—and looks even better."
+  category: "joy"
+  why_it_matters: "Brings alignment between aesthetics and function. Pure flow state."
+  example: |
+    ```txt
+    UI: 'Pixel perfect.'
+    Brain: 'Color palette divine.'
+    ```
+  related: ["ui", "ux", "creative"]
+  note: "You don’t just see it—you *feel* it."
+  emoji: "🎨🖌️"
+  last_updated: "2024-08-11"
+
+- id: fast-feedback
+  term: "Fast Feedback"
+  definition: "When you change something and immediately see the result—no lag, no reloads."
+  category: "joy"
+  why_it_matters: "Keeps the dev loop tight and the motivation strong."
+  example: |
+    ```txt
+    You: Save file.
+    Browser: Updates instantly.
+    ```
+  related: ["hot-reload", "dev-server", "live-preview"]
+  note: "The dopamine hit every dev deserves."
+  emoji: "⚡👀"
+  last_updated: "2024-08-11"
+
+- id: perfect-commit-message
+  term: "Perfect Commit Message"
+  definition: "A tidy, clear, and slightly poetic summary of what your code achieved."
+  category: "joy"
+  why_it_matters: "Future-you and teammates will thank you for it. It's code manners."
+  example: |
+    ```txt
+    feat(auth): Allow login via enchanted amulets
+    ```
+  related: ["git", "documentation", "convention"]
+  note: "A tiny haiku of productivity."
+  emoji: "📝🎯"
+  last_updated: "2024-08-11"
+
+- id: unexpected-compliment
+  term: "Unexpected Compliment"
+  definition: "The sweet surprise when a teammate appreciates your code, style, or commit message."
+  category: "joy"
+  why_it_matters: "Reminds devs they’re not just contributors—they’re creators."
+  example: |
+    ```txt
+    Peer: 'Hey, your function naming is *chef's kiss*.'
+    ```
+  related: ["team", "morale", "culture"]
+  note: "Tiny praise can fuel an entire sprint."
+  emoji: "💌🎈"
+  last_updated: "2024-08-11"
+
+- id: emotional-intelligence
+  term: "Emotional Intelligence"
+  definition: "The ability to recognize, understand, and respond to emotions—your own and others'."
+  category: "culture"
+  why_it_matters: "Improves communication, builds trust, and keeps dev teams from imploding."
+  example: |
+    ```txt
+    Dev: 'Looks like you're overwhelmed—want to talk through it?'
+    ```
+  related: ["soft-skills", "leadership", "team-dynamics"]
+  note: "Turns teammates into allies."
+  emoji: "🧠💗"
+  last_updated: "2024-08-11"
+
+- id: inclusive-language
+  term: "Inclusive Language"
+  definition: "Wording that avoids exclusion, bias, or stereotypes—especially in documentation and code."
+  category: "culture"
+  why_it_matters: "Makes everyone feel welcome. Tech should be built for *all*."
+  example: |
+    ```diff
+    - whitelist
+    + allowlist
+    ```
+  related: ["accessibility", "ethics", "documentation"]
+  note: "Words matter. Choose thoughtfully."
+  emoji: "📚👐"
+  last_updated: "2024-08-11"
+
+- id: feedback-culture
+  term: "Feedback Culture"
+  definition: "A team environment where sharing constructive input is safe, expected, and valued."
+  category: "culture"
+  why_it_matters: "Nurtures growth, catches issues early, and builds mutual respect."
+  example: |
+    ```txt
+    Retro: 'Let’s celebrate wins and unpack what didn’t go well—with kindness.'
+    ```
+  related: ["retrospective", "communication", "trust"]
+  note: "Critique doesn’t need sharp edges."
+  emoji: "📣🪴"
+  last_updated: "2024-08-11"
+
+- id: user-empathy
+  term: "User Empathy"
+  definition: "Designing with compassion for the person behind the screen."
+  category: "design"
+  why_it_matters: "Leads to accessible, intuitive, and emotionally resonant products."
+  example: |
+    ```txt
+    UX Note: 'This flow feels stressful. Can we simplify it for anxious users?'
+    ```
+  related: ["ux", "accessibility", "human-centered"]
+  note: "Your users aren’t edge cases—they’re people."
+  emoji: "🧍‍♀️🧍‍♂️💬"
+  last_updated: "2024-08-11"
+
+- id: psychological-safety
+  term: "Psychological Safety"
+  definition: "The belief that you won’t be punished or humiliated for speaking up with ideas or concerns."
+  category: "culture"
+  why_it_matters: "Enables innovation, honesty, and healthy team dynamics."
+  example: |
+    ```txt
+    'I might be wrong—but here’s what I think.'
+    ```
+  related: ["team", "leadership", "trust"]
+  note: "Fear-free zones spark better code."
+  emoji: "🛡️💬"
+  last_updated: "2024-08-11"
+
+- id: one-character-fix
+  term: "One-Character Fix"
+  definition: "When a single typo or missing semicolon caused hours of debugging misery."
+  category: "legend"
+  why_it_matters: "Proof that the tiniest mistake can hold up giants—and teach big lessons."
+  example: |
+    ```diff
+    - retrun data;
+    + return data;
+    ```
+  related: ["bug", "debugging", "typo"]
+  note: "Dev tears distilled into one keystroke."
+  emoji: "😤🔤"
+  last_updated: "2024-08-11"
+
+- id: friday-deploy
+  term: "Friday Deploy"
+  definition: "Pushing code live right before the weekend, fully aware of the risk—and the legend."
+  category: "legend"
+  why_it_matters: "Break it, and you’re an outlaw. Nail it, and you’re a hero 'til Monday."
+  example: |
+    ```txt
+    Prod is stable. It’s 4:58 PM. You press deploy anyway.
+    ```
+  related: ["deployment", "release", "devops"]
+  note: "May trigger pager duty, or eternal bragging rights."
+  emoji: "🕔🚨"
+  last_updated: "2024-08-11"
+
+- id: no-revert-needed
+  term: "No Revert Needed"
+  definition: "Deploying confidently... and realizing it actually worked perfectly the first time."
+  category: "legend"
+  why_it_matters: "So rare it deserves its own badge and a standing ovation."
+  example: |
+    ```txt
+    Slack: 'It's live—and… no bugs?!'
+    ```
+  related: ["ci-cd", "testing", "karma"]
+  note: "Celebrate quietly. Lest the bugs hear you."
+  emoji: "🧘‍♀️🟢"
+  last_updated: "2024-08-11"
+
+- id: midnight-hotfix
+  term: "Midnight Hotfix"
+  definition: "Fixing production in the dead of night, fueled by caffeine and righteous panic."
+  category: "legend"
+  why_it_matters: "A true test of grit. You, the logs, and a silent repo stare-off."
+  example: |
+    ```txt
+    2:14 AM. Terminal. Tears. Victory.
+    ```
+  related: ["incident", "ops", "survival"]
+  note: "Sleep-deprived code, yet somehow flawless."
+  emoji: "🌙🛠️"
+  last_updated: "2024-08-11"
+
+- id: last-minute-magic
+  term: "Last-Minute Magic"
+  definition: "Pulling off a working demo, fix, or deploy seconds before a deadline—or live presentation."
+  category: "legend"
+  why_it_matters: "It’s not luck. It’s stress-powered brilliance."
+  example: |
+    ```txt
+    Host: 'We're live in 3… 2…'
+    You: *hotfix pushed*
+    ```
+  related: ["demo", "presentations", "improv"]
+  note: "Adrenaline + coding = tech theater."
+  emoji: "🎭⏱️"
+  last_updated: "2024-08-11"
+
+- id: thoughtful-naming
+  term: "Thoughtful Naming"
+  definition: "The quiet art of picking words that carry meaning, clarity, and grace."
+  category: "aesthetic"
+  why_it_matters: "Clean naming makes code readable, teachable, and timeless."
+  example: |
+    ```txt
+    Function: `hydrateUserFromCache`
+    Not: `doStuff1`
+    ```
+  related: ["style", "readability", "convention"]
+  note: "Words shape understanding. Choose wisely."
+  emoji: "🖋️🌱"
+  last_updated: "2024-08-11"
+
+- id: calm-ui
+  term: "Calm UI"
+  definition: "Interfaces that soothe rather than shout—using space, tone, and subtle feedback."
+  category: "design"
+  why_it_matters: "Reduces cognitive load and emotional friction. Makes tech feel kind."
+  example: |
+    ```txt
+    Error: 'Oops—looks like something broke. Want to retry?'
+    ```
+  related: ["ux", "emotion", "aesthetic"]
+  note: "Design is hospitality. Be a good host."
+  emoji: "🌿🛋️"
+  last_updated: "2024-08-11"
+
+- id: graceful-failure
+  term: "Graceful Failure"
+  definition: "When things break softly—with clarity, dignity, and a gentle nudge forward."
+  category: "design"
+  why_it_matters: "Acknowledges errors without blame. Restores trust and flow."
+  example: |
+    ```txt
+    'We couldn't save your form. Try again or copy your text below.'
+    ```
+  related: ["error-handling", "ux", "accessibility"]
+  note: "Failure can be elegant. Even helpful."
+  emoji: "🥀💬"
+  last_updated: "2024-08-11"
+
+- id: developer-poetry
+  term: "Developer Poetry"
+  definition: "Code so elegant it reads like a stanza—succinct, expressive, and perfectly placed."
+  category: "aesthetic"
+  why_it_matters: "Shows mastery and care. A reminder that code is a creative act."
+  example: |
+    ```ruby
+    tweets = user.feed.reject(&:spam?)
+    ```
+  related: ["syntax", "style", "craft"]
+  note: "Looks beautiful. Works beautifully."
+  emoji: "📜💻"
+  last_updated: "2024-08-11"
+
+- id: design-with-care
+  term: "Design with Care"
+  definition: "Building with empathy, craft, and deep consideration for those who’ll use it."
+  category: "philosophy"
+  why_it_matters: "Tech becomes humane when we remember the human behind every click."
+  example: |
+    ```txt
+    'Would this experience feel empowering, confusing, or kind to our users?'
+    ```
+  related: ["ethics", "ux", "culture"]
+  note: "Care is a design principle."
+  emoji: "💞🎨"
+  last_updated: "2024-08-11"

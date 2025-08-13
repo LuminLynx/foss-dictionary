@@ -1,0 +1,31 @@
+{
+  "name": "foss-dictionary",
+  "version": "1.0.0",
+  "scripts": {
+    "format": "prettier . --write",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "next": "^14",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@types/node": "24.2.1",
+    "@types/react": "19.1.9",
+    "@typescript-eslint/eslint-plugin": "^8.39.1",
+    "@typescript-eslint/parser": "^8.39.1",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.39.1"
+  }
+}

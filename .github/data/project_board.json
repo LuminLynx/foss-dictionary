@@ -1,0 +1,32 @@
+{
+  "name": "Dev Glossary Roadmap",
+  "body": "Sprint-based implementation plan for glossary project. Includes tasks from setup to deployment.",
+  "columns": [
+    {
+      "name": "Backlog",
+      "cards": [
+        { "note": "Define term categories" },
+        { "note": "Plan contribution flow" }
+      ]
+    },
+    {
+      "name": "To Do (This Week)",
+      "cards": [
+        { "note": "Set up lib/terms.ts with mocked data" },
+        { "note": "Create dynamic route pages/terms/[id].tsx" }
+      ]
+    },
+    {
+      "name": "In Progress",
+      "cards": [{ "note": "Build index page at /terms" }]
+    },
+    {
+      "name": "Review",
+      "cards": [{ "note": "Review Tailwind styling on components" }]
+    },
+    {
+      "name": "Done",
+      "cards": [{ "note": "Folder scaffolding & environment setup" }]
+    }
+  ]
+}

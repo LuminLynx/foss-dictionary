@@ -1,0 +1,25 @@
+name: Populate Project Board
+
+on:
+  workflow_dispatch:
+
+jobs:
+  populate-board:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm install axios
+
+      - name: Create project board items
+        run: node .github/scripts/populate-board.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}

@@ -1,0 +1,64 @@
+# Node dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Other build directories
+dist/
+build/
+
+# Environment variables and local config
+.env
+.env.*         # .env.local, .env.development, etc.
+*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# OS/system files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+
+# Caches and temporary files
+.turbo/
+.cache/
+.eslintcache
+
+# Test coverage
+coverage/
+
+# Python artifacts (since you have requirements.txt)
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+
+# Misc generated files
+*.pid
+*.seed
+*.tgz
+
+# Ignore lockfiles if you want to force package re-resolution (optional)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Ignore public/uploads if generated or large
+# public/uploads/
+
+# Ignore secrets folder if exists
+secrets/
+
+# Ignore schema artifacts if generated
+schema.json
+data/schema.json
