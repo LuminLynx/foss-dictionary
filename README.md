@@ -1,5 +1,26 @@
 # foss-dictionary
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Status](https://img.shields.io/badge/status-in_progress-yellow)
+![Node.js](https://img.shields.io/badge/node-%3E=18-blue)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
+
+> An open-source glossary project to catalog and explain FOSS (Free and Open Source Software) terms.
+
+## 🧐 About
+The goal of this project is to create a reliable, community‑driven reference for FOSS terminology — from common abbreviations to niche technical jargon — to help newcomers and experts alike.
+
+---
+
+## 🚀 Getting Started
+Clone the repository and install dependencies:
+
+```bash
+git clone git@github.com:LuminLynx/foss-dictionary.git
+cd foss-dictionary
+npm install
+npm run dev
+
+---
 
 Defining tech jargon like real humans speak. No buzzword fluff, no corporate nonsense—just snappy, clear, occasionally irreverent definitions.
 
