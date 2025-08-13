@@ -1,27 +1,30 @@
-name: Deploy to GitHub Pages
+name: Dictionary Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    paths:
+      - data/terms.yaml
+      - scripts/validate/**
+  pull_request:
 
 jobs:
-  deploy:
+  validate-terms:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-        
-      - name: Build static site
-        run: |
-          mkdir -p public
-          cp index.html data/terms.yaml public/
-          
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+      - name: 📁 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
         with:
-          path: 'public/'
-          
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
+          python-version: "3.11"
+
+      - name: 📦 Install dependencies
+        run: pip install pyyaml jsonschema
+
+      - name: 🧼 Lint YAML structure
+        run: python scripts/validate/lint_terms.py
+
+      - name: ✅ Validate content + schema
+        run: python scripts/validate/validate_terms.py
