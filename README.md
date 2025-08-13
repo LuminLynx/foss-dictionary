@@ -1,4 +1,5 @@
 # foss-dictionary
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 Defining tech jargon like real humans speak. No buzzword fluff, no corporate nonsense—just snappy, clear, occasionally irreverent definitions.
 
