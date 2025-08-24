@@ -69,3 +69,17 @@ secrets/
 schema.json
 data/schema.json
 
+# Foam Notes Folder
+.notes/
+
+# Repository Structure Reference
+Last_Repository_Structure.txt
+
+# Jupyter Notebook checkpoints
+app/.ipynb_checkpoints/
+
+# Ignore generated search index
+public/search-index.json
+
+# Project Planning Related Content
+.Project_Planning/
