@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+// @ts-expect-error: TypeScript doesn't know JSON imports by default
 import terms from "@/data/terms.json"; // or load from YAML if needed
 import ReactMarkdown from "react-markdown";
 
