@@ -1,9 +1,8 @@
-export default function Page() {
+export default function HomePage() {
   return (
-    <>
-      <h1 className="text-3xl font-bold">Welcome to the FOSS Dictionary</h1>
-      <p className="mt-4">Browse, learn, and contribute to our open glossary of FOSS terms.</p>
-    </>
+    <main style={{ padding: "2rem" }}>
+      <h1>Home Page</h1>
+      <p>Welcome to the test navigation setup.</p>
+    </main>
   );
 }
-

@@ -1,9 +1,7 @@
+// app/layout.tsx
+import Link from "next/link";
+import routes from "../routes.json"; // adjust path if needed
 import "./globals.css";
-import type { Metadata } from 'next';
-export const metadata = {
-  title: "FOSS Dictionary",
-  description: "A community-driven IT terminology guide",
-};
 
 export default function RootLayout({
   children,
@@ -12,8 +10,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-gray-50">
-        <main className="max-w-4xl mx-auto p-4">{children}</main>
+      <body>
+        <nav style={{ padding: "1rem", borderBottom: "1px solid #ccc" }}>
+          {routes
+            // Option 1: filter out dynamic routes
+            .filter((r) => !r.includes("["))
+            // Option 2: OR replace placeholder with a sample value
+            // .map((r) => r.includes("[id]") ? r.replace("[id]", "123") : r)
+            .map((href) => (
+              <Link key={href} href={href} style={{ marginRight: "1rem" }}>
+                {href === "/" ? "Home" : href.replace("/", "").toUpperCase()}
+              </Link>
+            ))}
+        </nav>
+        {children}
       </body>
     </html>
   );
