@@ -1,8 +1,7 @@
-export default function Page() {
+export default function TermsIndexPage() {
   return (
-    <main>
-      <h1>Terms Page</h1>
-      <p>this Project is being created</p>
-    </main>
+    <>
+      <p>Select a term to view its details.</p>
+    </>
   );
 }

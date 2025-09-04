@@ -1,8 +1,8 @@
 export default function ContributePage() {
   return (
-    <main>
-      <h1>Contribute</h1>
-      <p>Information on how to contribute will go here.</p>
-    </main>
+     <>
+      <h1 className="text-2xl font-bold">Contribute</h1>
+      <p className="mt-2">Help us expand the FOSS Dictionary by submitting new terms.</p>
+    </>
   );
 }
