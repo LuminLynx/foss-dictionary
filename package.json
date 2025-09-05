@@ -5,6 +5,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "validate:terms": "node --loader ts-node/esm scripts/validate/validateTerms.ts",
+    "lint": "eslint . --ext .ts,.tsx",
     "dev": "npm-run-all --parallel dev:routes dev:next",
     "dev:routes": "node scripts/generateRoutes.js --watch",
     "dev:next": "next dev",
@@ -15,6 +17,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "js-yaml": "^4.1.0",
     "next": "^15.5.2",
     "react": "^18",
     "react-dom": "^18",
