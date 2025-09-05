@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["node", "react"],
+    "target": "ES2020",
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "noEmit": true,
     "incremental": true,
-    "module": "NodeNext",
+    "module": "ESNext",
     "esModuleInterop": true,
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -21,8 +23,7 @@
       {
         "name": "next"
       }
-    ],
-    "target": "ES2017"
+    ]
   },
   "ts-node": {
     "esm": true

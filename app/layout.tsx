@@ -1,6 +1,6 @@
 // app/layout.tsx
 import Link from "next/link";
-import routes from "../routes.json"; // adjust path if needed
+import routes from "../routes.json" assert { type: "json" }; // ✅ JSON import attribute for NodeNext
 import "./globals.css";
 
 export default function RootLayout({
