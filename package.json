@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "validate:terms": "ts-node --esm scripts/validate/validateTerms.ts",
+    "validate:terms": "node --import 'data:text/javascript,import { register } from \"node:module\"; import { pathToFileURL } from \"node:url\"; register(\"ts-node/esm\", pathToFileURL(\"./\"));' scripts/validate/validateTerms.ts",
     "validate:all": "npm run validate:terms",
     "lint": "eslint . --ext .ts,.tsx",
     "dev": "npm-run-all --parallel dev:routes dev:next",
