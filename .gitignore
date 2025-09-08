@@ -88,4 +88,4 @@ public/search-index.json
 Project_Planning.zip
 
 # Copliot uploaded files
-data/terms_load.json scripts/validate/validate_terms.ts
+ValidateTerms_Test.ts
