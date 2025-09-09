@@ -5,7 +5,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "validate:terms:test": "node --loader ts-node/esm scripts/validate/ValidateTerms_Test.ts",
+    "validate:terms": "node --import 'data:text/javascript,import { register } from \"node:module\"; import { pathToFileURL } from \"node:url\"; register(\"ts-node/esm\", pathToFileURL(\"./\"));' scripts/validate/validateTerms.ts",
+    "validate:terms:test": "node --import 'data:text/javascript,import { register } from \"node:module\"; import { pathToFileURL } from \"node:url\"; register(\"ts-node/esm\", pathToFileURL(\"./\"));' scripts/validate/ValidateTerms_Test.ts",
     "validate:all": "npm run validate:terms",
     "lint": "eslint . --ext .ts,.tsx",
     "dev": "npm-run-all --parallel dev:routes dev:next",
@@ -18,6 +19,9 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "ajv-keywords": "^5.1.0",
     "js-yaml": "^4.1.0",
     "leven": "^4.0.0",
     "next": "^14.2.32",
@@ -33,7 +37,7 @@
     "@types/node": "^24.3.1",
     "@types/react": "^19.1.12",
     "@typescript-eslint/eslint-plugin": "^8.42.0",
-    "@typescript-eslint/parser": "^3.10.1",
+    "@typescript-eslint/parser": "^8.43.0",
     "chokidar": "^4.0.3",
     "eslint": "^9.33.0",
     "eslint-plugin-react": "^5.2.2",
