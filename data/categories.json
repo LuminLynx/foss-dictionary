@@ -1,7 +1,93 @@
-[
-  "licensing",
-  "methodology",
-  "infra",
-  "backend",
-  "culture"
-]
+{
+  "categories": {
+    "development": {
+      "description": "Programming languages, frameworks, and development practices",
+      "subcategories": ["languages", "frameworks", "libraries", "methodologies"]
+    },
+    "infrastructure": {
+      "description": "Servers, deployment, networking, and system administration",
+      "subcategories": ["hosting", "networking", "deployment", "monitoring"]
+    },
+    "tools": {
+      "description": "Development tools, editors, and utilities",
+      "subcategories": ["editors", "version-control", "build-tools", "debugging"]
+    },
+    "data": {
+      "description": "Databases, data processing, and storage solutions",
+      "subcategories": ["databases", "analytics", "storage", "processing"]
+    },
+    "security": {
+      "description": "Security practices, authentication, and privacy",
+      "subcategories": ["authentication", "encryption", "privacy", "compliance"]
+    },
+    "web": {
+      "description": "Web technologies, browsers, and internet protocols",
+      "subcategories": ["frontend", "backend", "protocols", "standards"]
+    },
+    "mobile": {
+      "description": "Mobile development and app technologies",
+      "subcategories": ["ios", "android", "cross-platform", "native"]
+    },
+    "devops": {
+      "description": "Development operations, CI/CD, and automation",
+      "subcategories": ["cicd", "containers", "orchestration", "automation"]
+    },
+    "design": {
+      "description": "User experience, interface design, and graphics",
+      "subcategories": ["ux", "ui", "graphics", "accessibility"]
+    },
+    "business": {
+      "description": "Project management, licensing, and organizational practices",
+      "subcategories": ["management", "licensing", "legal", "processes"]
+    },
+    "community": {
+      "description": "Open source culture, collaboration, and learning",
+      "subcategories": ["open-source", "collaboration", "learning", "events"]
+    },
+    "emerging": {
+      "description": "New technologies and experimental concepts",
+      "subcategories": ["ai", "blockchain", "iot", "experimental"]
+    }
+  },
+  "common_tags": [
+    "beginner-friendly",
+    "advanced",
+    "deprecated",
+    "trending",
+    "controversial",
+    "enterprise",
+    "startup",
+    "cross-platform",
+    "open-source",
+    "proprietary",
+    "free",
+    "paid",
+    "saas",
+    "self-hosted",
+    "cloud",
+    "on-premise",
+    "real-time",
+    "batch",
+    "sync",
+    "async",
+    "lightweight",
+    "heavy",
+    "scalable",
+    "performance",
+    "security-focused",
+    "user-friendly",
+    "developer-tools",
+    "end-user",
+    "api",
+    "cli",
+    "gui",
+    "web-based",
+    "desktop",
+    "mobile",
+    "cross-browser",
+    "standards-compliant",
+    "experimental",
+    "stable",
+    "legacy"
+  ]
+}
