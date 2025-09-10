@@ -87,5 +87,5 @@ public/search-index.json
 # Project Planning Archive
 Project_Planning.zip
 
-# Copliot uploaded files
-ValidateTerms_Test.ts
+# Validation output
+/validation-output
