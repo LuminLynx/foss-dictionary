@@ -5,6 +5,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "fix-related": "tsx scripts/validate/fixRelatedTerms.ts",
+    "cleanup": "tsx scripts/validate/cleanupYaml.ts",
+    "migrate": "tsx scripts/validate/migrateTerms.ts",
     "validate": "tsx scripts/validate/validateTerms.ts",
     "validate:terms:test": "node --loader ts-node/esm scripts/validate/ValidateTerms_Test.ts",
     "validate:all": "npm run validate:terms",

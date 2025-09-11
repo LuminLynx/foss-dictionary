@@ -346,7 +346,8 @@ function writeReport(
     fs.mkdirSync(outputDir, { recursive: true });
   }
 
-  const timestamp = new Date().toISOString().split("T")[0];
+  const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, -5);
+  // This would create: validation-report-2024-09-11T22-30-15.json
 
   // JSON Report (for CI/CD)
   const jsonPath = path.join(outputDir, `validation-report-${timestamp}.json`);
@@ -592,28 +593,14 @@ async function runValidation() {
 
   const processingTime = Date.now() - startTime;
 
-  // Create report with Portuguese local time
+  // Create report
   const report: ValidationReport = {
     summary: {
       totalTerms: terms.length,
       validTerms: validCount,
       warningTerms: warningCount,
       errorTerms: errorCount,
-      timestamp: new Intl.DateTimeFormat("pt-PT", {
-        timeZone: "Europe/Lisbon",
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-      })
-        .format(new Date())
-        .replace(
-          /(\d{2})\/(\d{2})\/(\d{4}), (\d{2}):(\d{2}):(\d{2})/,
-          "$3-$2-$1 $4:$5:$6"
-        ),
+      timestamp: new Date().toISOString(),
       processingTimeMs: processingTime,
     },
     details: termDetails,
