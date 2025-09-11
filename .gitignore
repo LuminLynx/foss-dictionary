@@ -92,3 +92,9 @@ Project_Planning.zip
 
 # Ignore specific files
 TermsYamlBackup.yaml
+
+# terms.yaml backup file
+terms-backup-1757610547093.yaml
+
+# another terms.yaml backup file
+data/terms-backup.yaml
