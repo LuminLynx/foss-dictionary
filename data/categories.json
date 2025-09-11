@@ -88,6 +88,11 @@
     "standards-compliant",
     "experimental",
     "stable",
-    "legacy"
+    "legacy",
+    "fundamental",
+    "integration",
+    "philosophy",
+    "legal",
+    "permissive"
   ]
 }

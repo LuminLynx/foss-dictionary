@@ -89,3 +89,6 @@ Project_Planning.zip
 
 # Validation output
 /validation-output
+
+# Ignore specific files
+TermsYamlBackup.yaml

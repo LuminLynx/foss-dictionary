@@ -37,6 +37,7 @@ interface ValidationReport {
     duplicateIds: string[];
     duplicateTerms: string[];
     unusedCategories: string[];
+    unusedSubcategories: string[];
   };
 }
 
@@ -52,7 +53,9 @@ const MAX_DEFINITION_LENGTH = 300;
 
 // Load data files
 const categoriesPath = path.join(__dirname, "../../data/categories.json");
-const categories: string[] = JSON.parse(fs.readFileSync(categoriesPath, "utf8"));
+const categoryData = JSON.parse(fs.readFileSync(categoriesPath, "utf8"));
+const categories = categoryData.categories;
+const commonTags = categoryData.common_tags;
 
 const termsPath = path.join(__dirname, "../../data/terms.yaml");
 const termsRaw = yaml.load(fs.readFileSync(termsPath, "utf8"));
@@ -68,12 +71,85 @@ const green = (s: string) => `\x1b[32m${s}\x1b[0m`;
 const blue = (s: string) => `\x1b[36m${s}\x1b[0m`;
 
 // Validation functions
-function generateSlug(term: string): string {
-  return term.toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .trim();
+function suggestClosest(value: string, list: string[]): string | null {
+  let closest: string | null = null;
+  let minDistance = Infinity;
+  
+  for (const item of list) {
+    const dist = leven(value.toLowerCase(), item.toLowerCase());
+    if (dist < minDistance && dist <= 3) {
+      minDistance = dist;
+      closest = item;
+    }
+  }
+  
+  return closest;
+}
+
+function validateHierarchicalCategory(category: string, subcategory?: string): ValidationResult[] {
+  const results: ValidationResult[] = [];
+  
+  // Check main category exists
+  if (!categories[category]) {
+    const suggestion = suggestClosest(category, Object.keys(categories));
+    results.push({
+      level: 'error',
+      field: 'category',
+      message: `Invalid category "${category}"`,
+      suggestion: suggestion ? `Did you mean "${suggestion}"?` : undefined
+    });
+    return results; // Don't check subcategory if main category is invalid
+  }
+  
+  // Check subcategory if provided
+  if (subcategory) {
+    const validSubcategories = categories[category].subcategories || [];
+    if (!validSubcategories.includes(subcategory)) {
+      const suggestion = suggestClosest(subcategory, validSubcategories);
+      results.push({
+        level: 'error',
+        field: 'subcategory',
+        message: `Invalid subcategory "${subcategory}" for category "${category}"`,
+        suggestion: suggestion ? `Did you mean "${suggestion}"?` : undefined
+      });
+    }
+  }
+  
+  return results;
+}
+
+function validateTags(tags: string[]): ValidationResult[] {
+  const results: ValidationResult[] = [];
+  
+  if (!Array.isArray(tags)) {
+    return results; // Tags are optional
+  }
+  
+  for (const tag of tags) {
+    if (typeof tag !== 'string') {
+      results.push({
+        level: 'error',
+        field: 'tags',
+        message: `Invalid tag type: ${typeof tag}`
+      });
+      continue;
+    }
+    
+    // Allow custom tags, but suggest common ones for typos
+    if (!commonTags.includes(tag)) {
+      const suggestion = suggestClosest(tag, commonTags);
+      if (suggestion) {
+        results.push({
+          level: 'warning',
+          field: 'tags',
+          message: `Uncommon tag "${tag}"`,
+          suggestion: `Did you mean "${suggestion}"?`
+        });
+      }
+    }
+  }
+  
+  return results;
 }
 
 function checkTone(definition: string, note?: string): ValidationResult[] {
@@ -130,21 +206,6 @@ function findSimilarTerms(termName: string, allTerms: string[]): string[] {
   });
 }
 
-function suggestClosest(value: string, list: string[]): string | null {
-  let closest: string | null = null;
-  let minDistance = Infinity;
-  
-  for (const item of list) {
-    const dist = leven(value.toLowerCase(), item.toLowerCase());
-    if (dist < minDistance && dist <= 3) {
-      minDistance = dist;
-      closest = item;
-    }
-  }
-  
-  return closest;
-}
-
 function validateTerm(term: any, allTermIds: Set<string>, allTermNames: string[]): ValidationResult[] {
   const results: ValidationResult[] = [];
   
@@ -161,17 +222,16 @@ function validateTerm(term: any, allTermIds: Set<string>, allTermNames: string[]
     results.push({ level: 'error', field: 'definition', message: 'Missing or invalid definition field' });
   }
   
-  // Category validation
+  // Category validation using hierarchical structure
   if (!term.category || typeof term.category !== 'string') {
     results.push({ level: 'error', field: 'category', message: 'Missing or invalid category field' });
-  } else if (!categories.includes(term.category)) {
-    const suggestion = suggestClosest(term.category, categories);
-    results.push({
-      level: 'error',
-      field: 'category',
-      message: `Invalid category "${term.category}"`,
-      suggestion: suggestion ? `Did you mean "${suggestion}"?` : undefined
-    });
+  } else {
+    results.push(...validateHierarchicalCategory(term.category, term.subcategory));
+  }
+  
+  // Tag validation
+  if (term.tags) {
+    results.push(...validateTags(term.tags));
   }
   
   // Tone and content validation
@@ -283,7 +343,7 @@ function generateMarkdownReport(report: ValidationReport): string {
   markdown += `| Terms with Errors | ${summary.errorTerms} |\n\n`;
   
   // Global issues
-  if (globalIssues.duplicateIds.length || globalIssues.duplicateTerms.length || globalIssues.unusedCategories.length) {
+  if (globalIssues.duplicateIds.length || globalIssues.duplicateTerms.length || globalIssues.unusedCategories.length || globalIssues.unusedSubcategories.length) {
     markdown += `## Global Issues\n\n`;
     
     if (globalIssues.duplicateIds.length) {
@@ -296,6 +356,10 @@ function generateMarkdownReport(report: ValidationReport): string {
     
     if (globalIssues.unusedCategories.length) {
       markdown += `### Unused Categories\n${globalIssues.unusedCategories.map(cat => `- ${cat}`).join('\n')}\n\n`;
+    }
+    
+    if (globalIssues.unusedSubcategories.length) {
+      markdown += `### Unused Subcategories\n${globalIssues.unusedSubcategories.map(sub => `- ${sub}`).join('\n')}\n\n`;
     }
   }
   
@@ -436,11 +500,43 @@ async function runValidation() {
     });
   }
   
-  // Check for unused categories
+  // Check for unused categories and subcategories
   const usedCategories = new Set(
     terms.filter(t => t?.category).map(t => t.category)
   );
-  const unusedCategories = categories.filter(cat => !usedCategories.has(cat));
+  const usedSubcategories = new Map<string, Set<string>>();
+  
+  for (const term of terms) {
+    if (term?.category && term?.subcategory) {
+      if (!usedSubcategories.has(term.category)) {
+        usedSubcategories.set(term.category, new Set());
+      }
+      usedSubcategories.get(term.category)!.add(term.subcategory);
+    }
+  }
+  
+  const unusedCategories: string[] = [];
+  const unusedSubcategories: { category: string, subcategory: string }[] = [];
+  
+  // Check main categories
+  for (const category of Object.keys(categories)) {
+    if (!usedCategories.has(category)) {
+      unusedCategories.push(category);
+    }
+  }
+  
+  // Check subcategories
+  for (const [category, categoryData] of Object.entries(categories)) {
+    const catData = categoryData as { subcategories?: string[] };
+    if (catData.subcategories) {
+      const usedSubs = usedSubcategories.get(category) || new Set();
+      for (const subcategory of catData.subcategories) {
+        if (!usedSubs.has(subcategory)) {
+          unusedSubcategories.push({ category, subcategory });
+        }
+      }
+    }
+  }
   
   const processingTime = Date.now() - startTime;
   
@@ -458,7 +554,8 @@ async function runValidation() {
     globalIssues: {
       duplicateIds,
       duplicateTerms,
-      unusedCategories
+      unusedCategories,
+      unusedSubcategories: unusedSubcategories.map(u => `${u.category}/${u.subcategory}`)
     }
   };
   
@@ -479,6 +576,10 @@ async function runValidation() {
   
   if (unusedCategories.length) {
     console.log(yellow(`\n⚠️  Unused categories: ${unusedCategories.join(', ')}`));
+  }
+  
+  if (unusedSubcategories.length) {
+    console.log(yellow(`\n⚠️  Unused subcategories: ${unusedSubcategories.map(u => `${u.category}/${u.subcategory}`).join(', ')}`));
   }
   
   // Write reports
